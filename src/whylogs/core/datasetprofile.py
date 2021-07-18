@@ -497,7 +497,7 @@ class DatasetProfile:
             modeProfile=model_profile_msg,
         )
 
-    def write_protobuf(self, protobuf_path: str, delimited_file: bool = True):
+    def write_protobuf(self, protobuf_path: str, delimited_file: bool = True, transport_parameters: dict=None)->None:
         """
         Write the dataset profile to disk in binary format
 
@@ -512,7 +512,8 @@ class DatasetProfile:
             Default is True
 
         """
-        with open(protobuf_path, "wb") as f:
+
+        with open(protobuf_path, "wb",transport_parameters=transport_parameters) as f:
             msg = self.to_protobuf()
             size = msg.ByteSize()
             if delimited_file:
@@ -520,7 +521,7 @@ class DatasetProfile:
             f.write(msg.SerializeToString())
 
     @staticmethod
-    def read_protobuf(protobuf_path: str, delimited_file: bool = True) -> "DatasetProfile":
+    def read_protobuf(protobuf_path: str, delimited_file: bool = True,transport_parameters: dict=None) -> "DatasetProfile":
         """
         Parse a protobuf file and return a DatasetProfile object
 
