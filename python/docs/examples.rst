@@ -33,4 +33,5 @@ Integrations
 .. toctree::
     :maxdepth: 1
 
+    examples/integrations/writing_profiles
     examples/integrations/pyspark_profiling
