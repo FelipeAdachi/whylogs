@@ -40,14 +40,13 @@ Different loggers may write to different storage systems using different output 
 **Metadata** is data that describes either a dataset or information from whylogs’ processing of the dataset.
 
 #### whylogs file
-[NEED UPDATING] The **whylogs output** is available in the following formats: protobuf, JSON, and flat. Protobuf is a lightweight binary
-format that maps one-to-one with the memory representation of a whylogs object. JSON displays the protobuf data in JSON
-format. Flat outputs multiple files with both CSV and JSON content to represent different views of the data, including
-histograms, upper-bound, lower-bound, and frequent values. To apply advanced transformation on whylogs, we recommend
-using Protobuf.
+
+A whylogs-generated profile can be stored as a protobuf binary file. Protobuf is a lightweight binary
+format that maps one-to-one with the memory representation of a whylogs object.
 
 #### Metric
-TBD New world
+The summary statistics of a dataset is composed by a collection of metrics. Metrics are defined according to its namespaces. Some of the whylogs' default namespaces are: `counts`, `types`, `distribution`, `cardinality`, `frequent items/frequent strings`. By default, a column of a given data type will have a defined set of metrics assigned to it. The metrics to be tracked are customizable according to data type or column name (see [Schema Configuration](examples/basic/Schema_Configuration.ipynb)) . New metrics can also be created in a custom fashion, according to the need of the user (see TBD).
+
 
 ##### Metric component
 NEED TO DEFINE HERE
